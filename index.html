@@ -97,7 +97,25 @@
       from {opacity: 0;}
       to {opacity: 1;}
     }
-  </style>
+  
+.options input[type="checkbox"] + label {
+  background-color: #e5e7eb;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin: 5px;
+  display: inline-block;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+.options input[type="checkbox"]:checked + label {
+  background-color: #c7d2fe;
+  border: 2px solid #1e3a8a;
+  font-weight: bold;
+  color: #1e3a8a;
+}
+
+</style>
 </head>
 <body>
   <div class="container">
@@ -193,6 +211,25 @@
     }
 
     function showEstimation() {
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const surface = parseFloat(document.getElementById('surface').value);
+      const travaux = [...document.querySelectorAll('input[name=travaux]:checked')].map(el => el.value);
+      const gamme = document.getElementById('niveau').value;
+
+      if (!email || !phone || !surface || isNaN(surface) || surface <= 0 || travaux.length === 0 || !gamme) {
+        alert("Merci de remplir tous les champs obligatoires.");
+        return;
+      }
+
+
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      if (!email || !phone || !surface || isNaN(surface) || surface <= 0 || travaux.length === 0) {
+        alert("Merci de remplir tous les champs avant de continuer.");
+        return;
+      }
+
       const surface = parseFloat(document.getElementById('surface').value);
       const gamme = document.getElementById('niveau').value;
       const travaux = [...document.querySelectorAll('input[name=travaux]:checked')].map(el => el.value);
