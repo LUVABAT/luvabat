@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LUVA BAT - Accueil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: url('https://images.pexels.com/photos/271800/pexels-photo-271800.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Manrope', sans-serif;
+      margin: 0;
+    }
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.85);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: #1e3a8a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3749a3;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="container">
+      <h1>Obtenez votre estimation travaux</h1>
+      <form id="startForm" onsubmit="handleStart(event)">
+        <input type="email" id="email" placeholder="Votre email" required />
+        <input type="tel" id="phone" placeholder="Votre téléphone" required />
+        <button type="submit">J’estime mes travaux</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    function handleStart(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      if (email && phone) {
+        localStorage.setItem('email', email);
+        localStorage.setItem('phone', phone);
+        window.location.href = 'estimation.html';
+      }
+    }
+  </script>
+</body>
+</html>
