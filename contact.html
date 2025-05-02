@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUVA BAT - Contact</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    form {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #2563eb;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+  
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    </style>
+</head>
+<body>
+  <form style="animation: fadeIn 1s ease;" action="https://formspree.io/f/mrbqperr" method="POST">
+    <h2>Demande de devis</h2>
+    <input type="text" name="name" placeholder="Votre nom" required>
+    <input type="email" name="email" id="email" placeholder="Votre email" required>
+    <input type="tel" name="phone" id="phone" placeholder="Votre téléphone" required>
+    <textarea name="message" rows="5" placeholder="Décrivez votre projet" required></textarea>
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <script>
+    document.getElementById('email').value = localStorage.getItem('email') || '';
+    document.getElementById('phone').value = localStorage.getItem('phone') || '';
+  </script>
+</body>
+</html>
